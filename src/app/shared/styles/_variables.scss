@@ -1,0 +1,28 @@
+@mixin flex($direction, $wrap, $justify-content, $align-items) {
+    display: flex;
+    flex-flow: $direction $wrap;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+$background: #fff;
+$border: #000;
+$active: rgb(243, 154, 154);
+$border-radius: 2px;
+%btn {
+  padding: 8px 16px;
+  font-family: 'Trocchi', serif;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid $border;
+  border-radius: $border-radius;
+  outline: transparent;
+  background-color: transparent;
+  &:hover {
+    background: $background;
+    border: 1px solid $active;
+    color: $active;
+  }
+}
+

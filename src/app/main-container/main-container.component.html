@@ -1,0 +1,52 @@
+<main data-test="app">
+  <div   class="container" >
+    <h2 >SmartRecruiters Posting List App</h2>
+    <div class="buttons">
+      <button class="btn" (click)="isCountry = !isCountry">Country</button>
+      <button class="btn" (click)="isDepartment = !isDepartment">Department</button>
+    </div>
+      <form>
+        <ng-container *ngIf="isCountry">
+
+        <h4>Country</h4>
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <mat-select [(ngModel)]="country" name="country"  (ngModelChange)="filterCountries($event)" >
+            <mat-option *ngFor="let country of countries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+      <ng-container *ngIf="isDepartment">
+        <h4>Department</h4>
+        <mat-form-field>
+          <mat-label>Department</mat-label>
+          <mat-select [(ngModel)]="department" name="department" (ngModelChange)="filterDepartments($event)" >
+            <mat-option *ngFor="let department of departments" [value]="department">
+              {{department}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+      </form>
+    <ul class="jobs-container" >
+      <li class="jobs" data-test="posting" *ngFor="let item of postingData">
+        <a [routerLink]="[item.id]">
+          <span class="name" data-test="posting-name">
+            {{item.name}}
+          </span>
+          <p class="location" data-test="posting-location">
+            <span>{{item.location.city}}, </span>
+            <ng-container *ngFor="let customField of item.customField">
+              <span *ngIf="customField.fieldLabel === 'Country'">
+                {{customField.valueLabel}}
+              </span>
+            </ng-container>
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</main>

@@ -1,0 +1,29 @@
+@import '../../shared/styles/variables';
+svg {
+  width: 14px;
+    height: 14px;
+}
+main {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  background: url(../../shared/assets/background.png);
+}
+.container {
+  background: $background;
+  width: 30%;
+  height: 100%;
+  margin-left: 34%;
+  border: 1px solid $border;
+    @include flex(column, nowrap, center, flex-start);
+    padding: 30px 40px  0;
+}
+h3,  h2 {
+  margin: 10px 0 0;
+}
+
+.location {
+  margin: 0;
+}
